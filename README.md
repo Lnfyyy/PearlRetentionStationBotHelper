@@ -1,0 +1,2 @@
+# PearlRetentionStationBotHelper
+用来快速配置和挂载珍珠滞留站假人
