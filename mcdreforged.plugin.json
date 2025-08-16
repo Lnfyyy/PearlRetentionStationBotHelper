@@ -1,0 +1,12 @@
+{
+    "id": "prsbh",
+    "version": "0.1.0",
+    "name": "PearlRetentionStationBotHelper",
+    "description": "珍珠滞留站假人快速挂载",
+    "author": "xiaoshuaixia",
+    "link": "https://github.com/xiaoshuaixia2012/PearlRetentionStationBotHelper",
+    "dependencies": {
+        "mcdreforged": ">=2.0.0",
+        "minecraft_data_api": ">=1.1.0"
+    }
+}
