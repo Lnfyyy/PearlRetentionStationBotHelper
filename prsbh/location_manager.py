@@ -11,7 +11,7 @@ class LocationManager:
         self.locations_path = os.path.join(data_folder, 'locations.json')
         self.config_path = os.path.join(data_folder, 'config.json')
         self.locations = {}
-        self.config = {"bot_name": "bot_pearl"}
+        self.config = {"bot_name": "bot_pearl", "item_name": "minecraft:iron_nugget"}
         self.load(server=server)
 
     def load(self, server: PluginServerInterface):

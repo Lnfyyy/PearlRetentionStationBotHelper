@@ -142,14 +142,17 @@ def prs_goto(source: CommandSource, name: str, location_manager: LocationManager
         "custom_name" : custom_name
         })
     for item_data in prsbh_inventory_result:
-        print(f"{item_data["slot"]} | {item_data["id"]} | {item_data["custom_name"] or "-default"}")
+        if item_data["id"] == location_manager.config['item_name']:
+            if source.is_player and item_data["custom_name"] == str(source).replace("Player ", ""):
+                server.execute(f"/player {location_manager.config['bot_name']} hotbar {int(item_data["slot"]) + 1}")
+                time.sleep(0.1)
+                server.execute(f"/player {location_manager.config['bot_name']} dropStack mainhand")
+                time.sleep(0.1)
+                server.execute(f"/player {location_manager.config['bot_name']} kill")
+            else:
+                server.logger.info(f"{item_data["slot"]} | {item_data["id"]} | {item_data["custom_name"] or "-default"}")
+                source.reply(f"{item_data["slot"]} | {item_data["id"]} | {item_data["custom_name"] or "-default"}")
         
-        
-
-
-
-
-    
 def prs_reload(source: CommandSource, location_manager: LocationManager):
     location_manager.load(server=source.get_server)
     source.reply("重载配置文件成功")
